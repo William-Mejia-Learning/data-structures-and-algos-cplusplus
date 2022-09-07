@@ -2,38 +2,30 @@
 
 using namespace std;
 
-int reverseArray(int arr[], int n) {
+int printAllPairs(int arr[], int n) {
 
-    int s = 0;
-    int e = n -1;
+    //Print all the elements(2 Nested Loop)
+    for(int i = 0; i < n; i++){
+        int x = arr[i];
 
-    // O(N)
-    while(s < e){
-        swap(arr[s],arr[e]);
-        s += 1;
-        e -= 1;
+        for(int j = i + 1; j < n; j++){
+            int y = arr[j];
+
+            cout << x << ", " << y << endl;
+        }
+        cout << endl;
     }
-
 }
 
 int main() {
 
-    int arr[] = {10,20,30,40,45, 60, 90,90};
+    int arr[] = {10,20,30,40,50, 60};
     int n = sizeof(arr) / sizeof(int);
 
-    //print the output
-    for(int i=0; i < n; i++){
-        cout<< arr[i] << " ";
-    }
-    cout << endl;
 
-    reverseArray(arr, n);
+    // Print all the elements
 
-    //print the output
-    for(int i=0; i < n; i++){
-        cout<< arr[i] << " ";
-    }
-    cout << endl;
+    printAllPairs(arr, n);
 
     return 0;
 }
