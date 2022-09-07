@@ -2,39 +2,44 @@
 
 using namespace std;
 
-int linear_search(int arr[], int n, int key) {
-    for(int i = 0; i < n; i++){
-        //check if current element matches with the key
+int binary_search(int arr[], int n, int key) {
+    // Implement binary search: time complexity O(log N)
+    // Fast and efficient
+    // Search space is monotonic
+    int s = 0;
+    int e = n - 1;
 
-        if(arr[i] == key){
-            return i;
+    while(s<=e) {
+        int mid = (s+e)/2;
+
+        if(arr[mid] == key){
+            return mid;
+        }
+        else if (arr[mid] > key){
+            e = mid - 1;
+        } else {
+            s = mid + 1;
         }
     }
-    //out of loop
     return -1;
 }
 
 int main() {
-    //Linear Search(Brute Force)
 
-    int arr[] = {10, 15, 12, 9, 6, 4, 3, 10, 0};
-
-    int n =sizeof(arr) / sizeof(int);
+    int arr[] = {10,20,30,40,45, 60, 70,89};
+    int n = sizeof(arr) / sizeof(int);
 
     int key;
     cin >> key;
 
-    int index = linear_search(arr,n,key);
+    int index = binary_search(arr, n, key);
 
-    if(index!=-1){
-        cout << key << " is present at index "<< index << endl;
-    } else {
-        cout << key << " is NOT FOUND!" << endl;
+    if(index != -1){
+        cout << key << " is present at index " << index << endl;
     }
-
-
-
-
+    else {
+        cout << key << " is NOT Found!" << endl;
+    }
 
     return 0;
 }
