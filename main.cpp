@@ -2,51 +2,37 @@
 
 using namespace std;
 
-void printArray(int * arr, int n) {
-    cout << "In Function " << sizeof(arr) << endl;
-    arr[0] = 100;
+int linear_search(int arr[], int n, int key) {
+    for(int i = 0; i < n; i++){
+        //check if current element matches with the key
 
-//    n = sizeof(arr) / sizeof(int);
-
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << endl;
+        if(arr[i] == key){
+            return i;
+        }
     }
+    //out of loop
+    return -1;
 }
 
 int main() {
+    //Linear Search(Brute Force)
 
-//    int marks[100] = {0};
-//
-//    int n;
-//    cout << "Enter the no of students ";
-//
-//    cin >> n;
-//
-//    for(int i=0; i<n; i++){
-//        cin >> marks[i];
-//
-//        marks[i] = marks[i]*2;
-//    }
-//
-//    for(int i=0; i<100; i++){
-//        cout << marks[i] << " ,";
-//    }
+    int arr[] = {10, 15, 12, 9, 6, 4, 3, 10, 0};
 
-//    cout << endl;
+    int n =sizeof(arr) / sizeof(int);
 
-    // There is no garbage collection in C++
+    int key;
+    cin >> key;
 
-    int arr[] = {1, 2, 3, 4, 5, 6};
+    int index = linear_search(arr,n,key);
 
-    int n = sizeof(arr) / sizeof(int);
-
-    cout << "In Main " << sizeof(arr) << endl;
-
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << endl;
+    if(index!=-1){
+        cout << key << " is present at index "<< index << endl;
+    } else {
+        cout << key << " is NOT FOUND!" << endl;
     }
 
-    printArray(arr, n);
+
 
 
 
