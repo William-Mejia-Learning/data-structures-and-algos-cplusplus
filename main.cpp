@@ -2,20 +2,25 @@
 
 using namespace std;
 
-int printAllPairs(int arr[], int n) {
+int printSubArrays(int arr[], int n) {
 
-    //Print all the elements(2 Nested Loop)
-    for(int i = 0; i < n; i++){
-        int x = arr[i];
+    //Time O(n(N^3)
+    int sum;
 
-        for(int j = i + 1; j < n; j++){
-            int y = arr[j];
-
-            cout << x << ", " << y << endl;
+    for(int i = 0; i<n; i++){
+        for(int j=i;j<n;j++){
+            //cout << "(" << i << ", " << j <<"),";
+            for(int k = i; k<=j; k++){
+                cout << arr[k] << ", ";
+            }
+            cout << endl;
         }
         cout << endl;
     }
+
 }
+
+//Print the sum of each subarray & finding out the largest sum
 
 int main() {
 
@@ -25,7 +30,7 @@ int main() {
 
     // Print all the elements
 
-    printAllPairs(arr, n);
+    printSubArrays(arr, n);
 
     return 0;
 }
