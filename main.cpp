@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -18,14 +19,33 @@ int maximum_subarray_sum(int arr[], int n) {
 }
 
 int main() {
+    //Demo Vector
+    //vector<int> arr = //{1,2,10,12,15};
 
-    int arr[] = {-2, 3, 4, -1, 5, -12, 6, 1, 3};
-    int n = sizeof(arr) / sizeof(int);
+    //Fill Constructor
+    vector<int> arr(10,7);
+
+    //Fill
+    vector<int> visited(100,0);
 
 
-    // Print all the elements
+    //Pop_back
+    arr.pop_back();
 
-    cout << maximum_subarray_sum(arr, n) << endl;
+    // Push_Back O(1)
+    arr.push_back(16);
+
+    //Print all the elements
+    for(int i = 0; i < arr.size(); i++){
+        cout << arr[i] << endl;
+    }
+
+
+//    //size of the vector
+//    cout << arr.size() << endl;
+//
+//    //Capacity of the vector
+//    cout << arr.capacity() << endl;
 
     return 0;
 }
