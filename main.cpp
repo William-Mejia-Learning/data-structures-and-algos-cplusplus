@@ -2,31 +2,20 @@
 
 using namespace std;
 
-// Prefix Sum Approach O(N^2)
-int largestSubarraySum1(int arr[], int n) {
-    //Prefix sums
-    int prefix[n] = {0};
-    prefix[0] = arr[0];
-    for (int i = 1; i < n; i++) {
-        prefix[i] = prefix[i - 1] + arr[i];
-    }
+// Kadane's Algorithm O(N)
+int maximum_subarray_sum(int arr[], int n) {
+    int cs = 0;
+    int largest = 0;
 
-    // largest sum login
-    int largest_sum = 0;
-
-    for (int i = 0; i < n; i++) {
-        for (int j = i; j < n; j++) {
-            int subarraySum = i > 0 ? prefix[j] - prefix[i - 1] : prefix[j];
-            largest_sum = max(largest_sum, subarraySum);
+    for(int i = 0; i<n; i++){
+        cs =cs + arr[i];
+        if(cs < 0){
+            cs = 0;
         }
+        largest = max(largest, cs);
     }
-
-    return largest_sum;
-
+    return largest;
 }
-
-// find out the largest sum of subarray
-// Brute Force
 
 int main() {
 
@@ -36,7 +25,7 @@ int main() {
 
     // Print all the elements
 
-    cout << largestSubarraySum1(arr, n) << endl;
+    cout << maximum_subarray_sum(arr, n) << endl;
 
     return 0;
 }
